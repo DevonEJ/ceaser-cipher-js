@@ -1,5 +1,5 @@
 // Ceasar Cipher class defined
-const chalk = require(chalk);
+const chalk = require('chalk');
 
 class CeasarCipher {
   constructor(message) {
