@@ -23,7 +23,13 @@ class CeasarCipher {
       "Q",
       "R",
       "S",
-      "T"
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
     ];
   }
 
