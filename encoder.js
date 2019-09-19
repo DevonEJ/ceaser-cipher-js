@@ -1,4 +1,5 @@
 // Ceasar Cipher class defined
+const chalk = require(chalk);
 
 class CeasarCipher {
   constructor(message) {
@@ -60,7 +61,7 @@ class CeasarCipher {
       // TODO: Change to only print the fully encoded string - don't print mssg at each run of the loop
       mssg = mssg.replace(letter, alphabet[cipherLetterIndex]);
 
-      console.log(mssg);
+      console.log(chalk.red(mssg));
     }
 
     console.log(`...Completed message encoding.`);
