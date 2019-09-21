@@ -87,7 +87,7 @@ class CeasarCipher {
   }
 
   applyDecoding (message =' ', shift_length = 3) {
-
+    break
   }
 }
 
