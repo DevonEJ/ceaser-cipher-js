@@ -85,8 +85,13 @@ class CeasarCipher {
     }
     return mssg
   }
+
+  applyDecoding (message =' ', shift_length = 3) {
+
+  }
 }
 
 // TODO: Write decoder method
+// TODO: Make the shift_length a property of the class that can be overwritten?
 
 exports.CeasarCipher = CeasarCipher;
