@@ -1,6 +1,11 @@
 // Ceasar Cipher class defined
 const chalk = require('chalk');
 
+/**
+ * CeaserCipher replicates action of a shift cipher, aka. Ceasar cipher.
+ * @class
+ * @function applyEncoding - Encodes and returns string message using the shift cipher.
+ */
 class CeasarCipher {
   /**
    * Constructor for the CeasarCipher class.
@@ -78,7 +83,6 @@ class CeasarCipher {
       mssg = mssg.replace(letter, cipherLetter);
       }
     }
-    //console.log(`Encoded Message; ${chalk.red(mssg)}`);
     return mssg
   }
 }
