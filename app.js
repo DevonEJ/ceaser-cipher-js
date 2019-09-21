@@ -3,7 +3,7 @@ const encoder = require('./encoder');
 
 
 // Instantiate Ceasar Cipher
-const myEncoder = new encoder.CeaserCipher(`This is my top secret message.`);
+const myEncoder = new encoder.CeasarCipher();
 
-//let encodedMessage = myEncoder.applyEncoding(`This is my top secret message.`);
 
+console.log(myEncoder.applyEncoding(`This is my top secret message.`))

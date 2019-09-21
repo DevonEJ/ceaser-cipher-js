@@ -65,7 +65,8 @@ class CeasarCipher {
       mssg = mssg.replace(letter, cipherLetter);
       }
     }
-    console.log(`Encoded Message; ${chalk.red(mssg)}`);
+    //console.log(`Encoded Message; ${chalk.red(mssg)}`);
+    return mssg
   }
 }
 
