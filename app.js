@@ -6,4 +6,4 @@ const encoder = require('./encoder');
 const myEncoder = new encoder.CeasarCipher();
 
 
-console.log(myEncoder.applyEncoding(`This is my top secret message.`, 3))
+console.log(myEncoder.applyEncoding(message = `This is my top secret message.`, shift_length = 3))
