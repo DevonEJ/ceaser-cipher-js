@@ -36,36 +36,39 @@ class CeasarCipher {
   applyEncoding(message) {
     console.log(`Beginning message encoding...`);
 
-    let mssg = message;
+    let mssg = message.toUpperCase();
     let letter;
-    let cipherLetterIndex;
+    let cipherLetter;
     let alphabet = this.alphabet;
 
-    for (letter of mssg) {
-      // Proxy is used to allow the use of negative array indexes in applyEncoding
-      let negIndexProxy = new Proxy(alphabet, {
-        get(targetLetter, prop) {
-          if (!isNaN(prop)) {
-            prop = parseInt(prop, 10);
-            if (prop < 0) {
-              prop += targetLetter.length;
-            }
+    // Proxy is used to allow the use of negative array indexes in applyEncoding
+    let negIndexProxy = new Proxy(alphabet, {
+      get(targetLetter, prop) {
+        if (!isNaN(prop)) {
+          prop = parseInt(prop, 10);
+          if (prop < 0) {
+            prop += targetLetter.length;
           }
-          return targetLetter[prop];
         }
-      });
+        return targetLetter[prop];
+      }
+    });
+
+    for (letter of mssg) {
+
+      // TODO: Add if statment for when value of letter is empty string
+
 
       // TODO: Add exception handling for message characters that are not letters
-      letter = letter.toUpperCase;
 
-      // Get Index of the letter 3 letters before the letter used in the message
-      cipherLetterIndex = alphabet.indexOf(letter) - 3;
+      // Get letter 3 letters before the letter used in the message
+      cipherLetter = negIndexProxy[alphabet.indexOf(letter) - 3];
 
-      // Replace the original message letter with the encoding letter
-      console.log(negIndexProxy[cipherLetterIndex]);
+      console.log(`This is cipherLetterIndex ${cipherLetter}`)
+      console.log(`This is the letter to be replaced; ${letter}`)
 
       // TODO: Change to only print the fully encoded string - don't print mssg at each run of the loop
-      mssg = mssg.replace(letter, alphabet[cipherLetterIndex]);
+      mssg = mssg.replace(letter, cipherLetter);
 
       console.log(chalk.red(mssg));
     }
