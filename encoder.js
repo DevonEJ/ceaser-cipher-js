@@ -1,8 +1,18 @@
 // Ceasar Cipher class defined
 const chalk = require('chalk');
 
+/**
+ * CeaserCipher replicates action of a shift cipher, aka. Ceasar cipher.
+ * @class
+ * @function applyEncoding - Encodes and returns string message using the shift cipher.
+ */
 class CeasarCipher {
-  constructor(message) {
+  /**
+   * Constructor for the CeasarCipher class.
+   * @constructor
+   * @property {string[]} - Array of upper case letters of the alphabet.
+   */
+  constructor() {
     this.alphabet = [
       "A",
       "B",
@@ -33,9 +43,18 @@ class CeasarCipher {
     ];
   }
 
-  applyEncoding(message) {
+  /** 
+   * Method uses the Ceasar cipher shift substitution method to return an encoded message in uppercase.
+   * @param {string} message - Message to be encoded.
+   * @param {number} shift_length - Shift length for character substitution.
+   * @return {string} ciphertext encoded message.
+   * @example
+   * applyEncoding(message = "Hi", shift_length = 2) => return: "EF".
+   */
+  applyEncoding(message = '', shift_length = 3) {
 
     let mssg = message.toUpperCase();
+    let shift = shift_length;
     let letter;
     let cipherLetter;
     let alphabet = this.alphabet;
@@ -54,20 +73,25 @@ class CeasarCipher {
     });
 
     for (letter of mssg) {
-      // If 
+      // If the letter is in the alphabet (e.g. not a number, space or punctuation mark) then encode it
       if (alphabet.includes(letter)) {
-        // TODO: Add exception handling for message characters that are not letters
 
       // Get letter 3 letters before the letter used in the message
-      cipherLetter = negIndexProxy[alphabet.indexOf(letter) - 3];
+      cipherLetter = negIndexProxy[alphabet.indexOf(letter) - shift];
 
       // Replace original letter with the cipher letter
       mssg = mssg.replace(letter, cipherLetter);
       }
     }
-    //console.log(`Encoded Message; ${chalk.red(mssg)}`);
     return mssg
   }
+
+  applyDecoding (message =' ', shift_length = 3) {
+    break
+  }
 }
+
+// TODO: Write decoder method
+// TODO: Make the shift_length a property of the class that can be overwritten?
 
 exports.CeasarCipher = CeasarCipher;
